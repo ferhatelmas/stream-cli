@@ -129,7 +129,7 @@ class PushApn extends Command {
 			const payload = {
 				apn_config: {
 					p12_cert: fs.existsSync(flags.p12_cert)
-						? fs.readFileSync(flags.p12_cert)
+						? fs.readFileSync(flags.p12_cert, { encoding: 'base64' })
 						: '',
 					auth_key: fs.existsSync(flags.auth_key)
 						? fs.readFileSync(flags.auth_key, 'utf-8')
